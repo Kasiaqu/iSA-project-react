@@ -1,0 +1,92 @@
+html {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+body{
+    min-width: 500px;
+    font-family: 'Open Sans', sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 800px;
+    background-color: whitesmoke;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 550px;
+    height: 100vh;
+ }
+.header{
+  font-size: 100px;
+  font-weight: 400;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+}
+form {
+    height: 50px;
+    width: 550px;
+    display: flex;
+}
+/* .arrow-btn {
+  transform: rotate(90deg);
+} */
+.arrow-btn{
+  width: 50px;
+  height: 50px;
+  transform: rotate(90deg);
+  background-color: white;
+  color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.todo {
+    position: relative;
+    height: 50px;
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-indent: 10px;
+}
+.task-list {
+  list-style: none;
+  width: 550px;
+  padding: 0;
+  margin: 0;
+}
+.task-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 550px;
+}
+.task-status {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.task-label {
+  position: relative;
+  right: 150px;
+}
+.button-nav {
+    min-width: 500px;
+    max-width: 550px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.buttons-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    width: 30%;
+}
+.buttons-list a{
+    padding: 0, 10px;
+}
