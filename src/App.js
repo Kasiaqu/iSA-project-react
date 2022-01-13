@@ -1,78 +1,46 @@
 import './index.css';
 
 function App() {
-  return (
-    <div className="app">
-      <div className='content'>
-        <h1 className="header">todos</h1>
-        <form>
-          <div className='arrow-btn'>{">"}</div>
-          <input className='todo' placeholder="What needs to be done?"></input>
-        </form>
-        <ul className='task-list'>
-          <li className='task-wrapper'>
-              <input className='task-status' type="checkbox"></input>
-              <label className='task-label'>Zadanie</label>
-              <button className='delete-task-btn'>X</button>
-          </li>
-          <li className='task-wrapper'>
-              <input className='task-status' type="checkbox"></input>
-              <label className='task-label'>Zadanie2</label>
-              <button className='delete-task-btn'>X</button>
-          </li>
-        </ul>
-        <div className='button-nav'>
-          <span>items left</span>
-          <ul className='buttons-list'>
-            <li><a>All</a></li>
-            <li><a>Active</a></li>
-            <li><a>Completed</a></li>
-          </ul>
-          <span>Clear completed</span>
-        </div>
-      </div>
+	return (
+		<div className="app">
+			<div className='content'>
+				<h1 className="header">todos</h1>
+				<div className='wrapper'>
+					<form className='form-wrapper'>
+						<div className='arrow-btn'>{"❯"}</div>
+						<input className='todo' placeholder="What needs to be done?"></input>
+					</form>
+					<div className='task-underline' />
 
-    </div>
-  );
+					<ul className='task-list'>
+					<li className='task-wrapper'>
+							<img src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E' />
+							<label className='task-label'>Zadanie2</label>
+							<button className='delete-task-btn'>×</button>
+						</li>
+						<li className='task-wrapper'>
+							<img src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E' />
+							<label className='task-label'>Zadanie2 Zadanie2 Zadanie2 Zadanie2 Zadanie2 Zadanie2 Zadanie2 Zadanie2 Zadanie2  Zadanie2 Zadanie2 Zadanie2 Zadanie2</label>
+							<button className='delete-task-btn'>×</button>
+						</li>
+
+					</ul>
+					<div className='button-nav'>
+						<span>items left</span>
+						<ul className='buttons-list'>
+							<li><a>All</a></li>
+							<li><a>Active</a></li>
+							<li><a>Completed</a></li>
+						</ul>
+						<span>Clear completed</span>
+					</div>
+				</div>
+
+				<div className='content-underline1'></div>
+				<div className='content-underline2'></div>
+			</div>
+		</div>
+	);
 }
 
-export default App;
-
-
-{/* <ul
-				role="list"
-				className="todo-list stack-large stack-exception"
-				aria-labelledby="list-heading"
-			>
-				<li className="todo stack-small">
-					<div className="c-cb">
-						<input id="todo-0" type="checkbox" defaultChecked={true} />
-						<label className="todo-label" htmlFor="todo-0">
-							Eat
-						</label>
-					</div>
-					<div className="btn-group">
-						<button type="button" className="btn">
-							Edytuj <span className="visually-hidden">Eat</span>
-						</button>
-						<button type="button" className="btn btn__danger">
-							Usuń <span className="visually-hidden">Eat</span>
-						</button>
-					</div>
-				</li>
-				<li className="todo stack-small">
-					<div className="c-cb">
-						<input id="todo-1" type="checkbox" />
-						<label className="todo-label" htmlFor="todo-1">
-							Sleep
-						</label>
-					</div>
-					<div className="btn-group">
-						<button type="button" className="btn">
-							Edytuj <span className="visually-hidden">Sleep</span>
-						</button>
-						<button type="button" className="btn btn__danger">
-							Usuń <span className="visually-hidden">Sleep</span>
-						</button>
-					</div>
-				</li> */}
+export default App;				
