@@ -6,6 +6,7 @@ import FilterButton from './components/FilterButton';
 
 function App() {
 	return (
+		
 		<div className="app">
 			<div className='content'>
 				<h1 className="header">todos</h1>
