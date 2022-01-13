@@ -4,42 +4,43 @@
   --pink: rgba(175, 47, 47, 0.15);
 }
 html {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
 }
 body{
-    min-width: 550px;
-    font-family: 'Open Sans', sans-serif;
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    max-width: 800px;
-    background-color: whitesmoke;
+  box-sizing: border-box;
+  min-width: 550px;
+  font-family: 'Open Sans', sans-serif;
+  margin:0;
+  padding: 0;
+  max-width: 800px;
+  background-color: whitesmoke;
 }
 .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 550px;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 550px;
+  height: 100vh;
  }
 .header{
   font-size: 100px;
   font-weight: 400;
   text-align: center;
-  color: rgba(175, 47, 47, 0.15);
+  color: var(--pink);
   margin: 10px 0;
 }
 
 .wrapper {
-  /* border: 1px solid rgba(175, 175, 175, 0.575); */
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
   color: var(--lightGrey);
+  width: 550px;
 }
+
+/* todo */
 form {
-    height: 50px;
     width: 550px;
     display: flex;
 }
@@ -48,7 +49,9 @@ form {
   position: relative;
   border-bottom: 1px solid #ededed;
   background-color: white;
-  box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%)
+  box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
+  padding: 16px 0 14px 0;
+  /* margin-bottom: 2px;   */
 }
 
 .arrow-btn{
@@ -67,14 +70,12 @@ form {
 }
 .todo {
   position: relative;
-  height: 48px;
-  width: 500px;
-  font-size: 18px;
+  width: 450px;
   font-style: italic;
-  margin: 0;
-  padding: 0;
+  font-size: 24px;
   border: none;
   text-indent: 10px;
+
 }
 ::placeholder {
   color: #e6e6e9;
@@ -83,6 +84,8 @@ form {
 input:focus{
   outline:none;
 }
+
+/* task list  */
 .task-list {
   list-style: none;
   width: 550px;
@@ -98,41 +101,18 @@ input:focus{
   border-bottom: 1px solid #ededed;
   padding: 5px, 10px, 10px, 10px;
 }
-
 .task-label {
   position: relative;
-  max-width: 450px;
+  width: 450px;
+  word-wrap: break-word;
+  padding: 10px 0;
+  font-size: 24px;
 }
-.button-nav {
-    width: 550px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    background-color: white;
-    color: var(--darkGrey);
-}
-.buttons-list {
-    display: flex;
-    list-style-type: none;
-    justify-content: space-around;
-    width: 40%;
-}
-.button-nav li{
-  border: 1px solid var(--pink);
-  border-radius: 3px;
-  padding: 0 5px;
-}
-.button-nav span {
-  padding: 5px;
-}
-.button-nav {
-  box-shadow: 0 1px 1px rgb(0 0 0 / 20%), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgb(0 0 0 / 20%), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgb(0 0 0 / 20%)
-}
-
 .delete-task-btn {
   position: relative;
+  display: flex;
   font-size: 30px;
-  right: 10px;
+  right: 15px;
   color: #cc9a9a;;
   width: 30px;
   height: 30px;
@@ -140,19 +120,37 @@ input:focus{
   border: none;
   transition: color 0.2s ease-out;
 }
-/* .task-underline{
-  width: 100%;
-  height: 1px;
-  background-color: grey;
-} */
-/* .content-underline1 {
-  width: 540px;
-  height: 4px;
+/* button nav */
+.button-nav {
+  width: 510px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   background-color: white;
-  /* border: 1px solid #eee; */
+  color: var(--darkGrey);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 20%), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgb(0 0 0 / 20%), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgb(0 0 0 / 20%);
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 14px;
+}
+.buttons-list {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  width: 40%;
+  padding-left: 20px;
+}
+.button-nav li{
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+.button-nav li:hover{
+  border: 1px solid rgba(175, 47, 47, 0.1);
+}
 
-/* .content-underline2 {
-  width: 533px;
-  height: 4px;
-  background-color: white;
-} */
+.button-nav-clear:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
