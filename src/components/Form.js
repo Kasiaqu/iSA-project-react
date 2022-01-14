@@ -11,7 +11,7 @@ const Form = (props) => {
             props.setTasks((prevValue) => {
                 return [...prevValue, task]
             })
-            console.log(task)
+            // console.log(task)
             setName("")
         }
     }
