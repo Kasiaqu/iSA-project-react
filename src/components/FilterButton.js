@@ -1,7 +1,10 @@
-const FilterButton = () => {
+import { useState } from "react";
+
+const FilterButton = (props) => {
+
     return (
         <div className='button-nav'>
-            <span>2 items left</span>
+            <span>{props.counterTask } items left</span>
             <ul className='buttons-list'>
                 <li><a>All</a></li>
                 <li><a>Active</a></li>

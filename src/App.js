@@ -6,11 +6,13 @@ import FilterButton from './components/FilterButton';
 
 function App() {
 	const [tasks, setTasks] = useState([])
+	// const [counterTask, setCounterTask] = useState(0)
+
+
 	function deleteTask(id) {
 		const remainingTasks = tasks.filter(task => id !== task.id);
 		setTasks(remainingTasks);
 	}
-
 
 	function completeTask(id) {
 		const updatedTasks = tasks.map(task => {
@@ -21,6 +23,13 @@ function App() {
 		});
 		setTasks(updatedTasks);
 	  }
+
+	//   function amountUncompleteTask(id) {
+	// 	  setCounterTask()
+
+	//   }
+	  const counterTask = tasks.filter(task => task.isComplete === false).length
+	console.log(tasks)
 	return (
 
 		<div className="app">
@@ -37,7 +46,7 @@ function App() {
 							deleteTask={deleteTask}
 							completeTask={completeTask} />)}
 					</ul>
-					<FilterButton />
+					<FilterButton counterTask ={counterTask}/>
 				</div>
 			</div>
 		</div>
