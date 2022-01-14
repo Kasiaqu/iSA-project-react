@@ -6,9 +6,11 @@ import FilterButton from './components/FilterButton';
 
 function App() {
 	const [tasks, setTasks] = useState([])
-	// const [name, setName] = useState("")
 
-
+	function deleteTask(id) {
+		const remainingTasks = tasks.filter(task => id !== task.id);
+		setTasks(remainingTasks);
+	}
 	return (
 
 		<div className="app">
@@ -20,7 +22,10 @@ function App() {
 						{tasks.map((task) => <Todo 
 						key={task.id}
 						name={task.name}
-						isComplete={task.isComplete} />)}
+						id={task.id}
+						isComplete={task.isComplete}
+						deleteTask={deleteTask}
+						 />)}
 					</ul>
 					<FilterButton />
 				</div>
