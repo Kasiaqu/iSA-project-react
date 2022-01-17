@@ -132,6 +132,9 @@ input:focus{
   padding-right: 20px;
   font-size: 14px;
 }
+.button-nav-left {
+  width: 74px;
+}
 .buttons-list {
   display: flex;
   list-style-type: none;
@@ -147,6 +150,9 @@ input:focus{
 }
 .button-nav li:hover{
   border: 1px solid rgba(175, 47, 47, 0.1);
+}
+.button-nav-clear {
+  width: 107px;
 }
 
 .button-nav-clear:hover {

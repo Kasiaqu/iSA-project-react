@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Todo from './../components/Todo'
 
 const Form = (props) => {
+
+    // {...props} {props}
     const [name, setName] = useState("")
 
     const addTask = (e) => {
@@ -22,7 +24,7 @@ const Form = (props) => {
     return (
         <div>
             <form className='form-wrapper'>
-                <div className='arrow-btn'>{"❯"}</div>
+                <div className='arrow-btn' onClick={props.completeAllTasks}>{"❯"}</div>
                 <input className='todo' placeholder="What needs to be done?"
                     value={name}
                     onChange={changeInputValue} onKeyPress={addTask}></input>
