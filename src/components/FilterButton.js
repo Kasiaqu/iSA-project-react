@@ -6,9 +6,9 @@ const FilterButton = (props) => {
         <div className='button-nav' style={ props.counterTasks === 0 ? {display: "none"} : {display: "flex"}} >
             <span className='button-nav-left'> {props.counterUncompletedTasks} {props.counterUncompletedTasks === 1 ? "item left" : "items left"}</span>
             <ul className='buttons-list'>
-                <li onClick={props.filterAllTasks}><a>All</a></li>
-                <li onClick={props.filterActiveTasks}><a>Active</a></li>
-                <li><a>Completed</a></li>
+                <li onClick={() => props.setFilter("All")}>All</li>
+                <li onClick={() => props.setFilter("Active")}>Active</li>
+                <li onClick={() => props.setFilter("Completed")}>Completed</li>
             </ul>
             <span className='button-nav-clear' onClick={props.clearCompletedTasks}>{(props.counterTasks - props.counterUncompletedTasks) > 0 ? "Clear completed" : ""}</span>
         </div>

@@ -3,17 +3,19 @@ import Todo from './../components/Todo'
 
 const Form = (props) => {
 
-    // {...props} {props}
     const [name, setName] = useState("")
 
     const addTask = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
+            ///// zapytać Filipa
+            if(name === ""){
+                return
+            }
             const task = { name, id: Date.now(), isComplete: false }
             props.setTasks((prevValue) => {
                 return [...prevValue, task]
             })
-            // console.log(task)
             setName("")
         }
     }
