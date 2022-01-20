@@ -7,8 +7,6 @@ import FilterButton from './components/FilterButton';
 function App() {
 	const [tasks, setTasks] = useState([])
 	const [filter, setFilter] = useState("All")
-	const [isEditing, setIsEditing] = useState(false);
-	const [newName, setNewName] = useState("IMIE")
 
 
 	function deleteTask(id) {
@@ -50,7 +48,7 @@ function App() {
 
 		const editedTaskList = tasks.map(task => {
 			if (id === task.id) {
-				setIsEditing(!isEditing);
+				console.log("edit task")
 				return { ...task, name: newName }
 			}
 			return task;
@@ -80,8 +78,7 @@ function App() {
 							deleteTask={deleteTask}
 							completeTask={completeTask}
 							editTask={editTask}
-							isEditing={isEditing}
-							setNewName={setNewName}
+		
 						/>)}
 					</ul>
 					<FilterButton counterUncompletedTasks={counterUncompletedTasks}
@@ -97,5 +94,3 @@ function App() {
 }
 
 export default App;
-
-// return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>;
