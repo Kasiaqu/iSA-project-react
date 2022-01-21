@@ -7,7 +7,7 @@ import FilterButton from './components/FilterButton';
 function App() {
 	const [tasks, setTasks] = useState([])
 	const [filter, setFilter] = useState("All")
-
+	const [isAllTasksDone, setIsAllTasksDone] = useState(false)
 
 	function deleteTask(id) {
 		const remainingTasks = tasks.filter(task => id !== task.id);
@@ -21,7 +21,6 @@ function App() {
 				return { ...task, isComplete: !task.isComplete }
 			}
 			return task;
-			// {...task}
 		});
 		setTasks(updatedTasks);
 	}
@@ -29,6 +28,7 @@ function App() {
 		const isAllCompleted = tasks.every(task => task.isComplete)
 		const completedTasks = tasks.map(task => ({ ...task, isComplete: !isAllCompleted }))
 		setTasks(completedTasks);
+		///zapytać Filipa
 	}
 
 	function clearCompletedTasks() {
@@ -56,7 +56,10 @@ function App() {
 		setTasks(editedTaskList);
 	}
 
-
+	useEffect(() => {
+		const isAllCompleted = tasks.every(task => task.isComplete)
+		setIsAllTasksDone(isAllCompleted)
+	}, [completeTask, completeAllTasks])
 
 	const counterTasks = tasks.length
 	console.log(counterTasks)
@@ -68,7 +71,9 @@ function App() {
 			<div className='content'>
 				<h1 className="header">todos</h1>
 				<div className='wrapper'>
-					<Form setTasks={setTasks} completeAllTasks={completeAllTasks} />
+					<Form setTasks={setTasks} completeAllTasks={completeAllTasks}
+						isAllTasksDone={isAllTasksDone}
+						counterTasks={counterTasks} />
 					<ul className='task-list'>
 						{tasks.filter(filterTasks).map((task) => <Todo
 							key={task.id}
@@ -78,13 +83,15 @@ function App() {
 							deleteTask={deleteTask}
 							completeTask={completeTask}
 							editTask={editTask}
-		
+
+
 						/>)}
 					</ul>
 					<FilterButton counterUncompletedTasks={counterUncompletedTasks}
 						counterTasks={counterTasks}
 						clearCompletedTasks={clearCompletedTasks}
 						setFilter={setFilter}
+						filter={filter}
 
 					/>
 				</div>

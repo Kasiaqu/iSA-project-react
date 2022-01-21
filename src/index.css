@@ -1,6 +1,7 @@
 :root {
   --lightGrey: #e6e6e9;
   --darkGrey: #868686;
+  --darkerGrey: #4d4d4d;
   --pink: rgba(175, 47, 47, 0.15);
 }
 html {
@@ -39,10 +40,10 @@ body{
   width: 550px;
 }
 
-/* todo */
 form {
     width: 550px;
     display: flex;
+    color: var(--darkerGrey);
 }
 
 .form-wrapper {
@@ -66,6 +67,7 @@ form {
   font-size: 24px;
   padding: 0;
   margin: 0;
+  user-select: none;
 }
 .todo {
   position: relative;
@@ -84,7 +86,7 @@ form {
   box-shadow: inset 0px 0px 3px 0px #8A8A8A;
 }
 ::placeholder {
-  color: #e6e6e9;
+  color: var(--lightGrey);
   font-style: italic;
 }
 
@@ -115,8 +117,10 @@ input:focus{
   word-wrap: break-word;
   padding: 10px 0;
   font-size: 24px;
+  transition: color 0.8s;
+  color: var(--darkerGrey);
 }
-.task-labes-cross {
+.task-label-cross {
   text-decoration: line-through;
   color: var(--lightGrey);
   position: relative;
@@ -124,18 +128,24 @@ input:focus{
   word-wrap: break-word;
   padding: 10px 0;
   font-size: 24px;
+  transition: color 0.4s;
 }
 .delete-task-btn {
   position: relative;
   display: flex;
   font-size: 30px;
   right: 15px;
-  color: #cc9a9a;;
+  color: #cc9a9a;
+  opacity: 0.6;
   width: 30px;
   height: 30px;
   background-color: transparent;
   border: none;
   transition: color 0.2s ease-out;
+  user-select: none;
+}
+.delete-task-btn:hover {
+  color: #a36060;
 }
 .button-nav {
   width: 510px;
@@ -165,8 +175,12 @@ input:focus{
   padding: 3px 7px;
   cursor: pointer;
 }
-.button-nav li:hover{
+.button-nav .li-inactive:hover{
   border: 1px solid rgba(175, 47, 47, 0.1);
+}
+
+.button-nav .li-active{
+  border: 1px solid rgba(175, 47, 47, 0.2);
 }
 .button-nav-clear {
   width: 107px;

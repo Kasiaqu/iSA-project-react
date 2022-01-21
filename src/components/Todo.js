@@ -6,6 +6,7 @@ const Todo = (props) => {
 
     const [isEditing, setIsEditing] = useState(false);
     const [newName, setNewName] = useState(props.name)
+    const [visibleButton, setVisibleButton] = useState(false)
 
 
     const isCompletedIcon = props.isComplete ?
@@ -16,38 +17,36 @@ const Todo = (props) => {
         setNewName(e.target.value)
 
     }
+    const handleMouseOver = () => {
+        setVisibleButton(true)
+    }
+
+    const handleMouseOut = () => {
+        setVisibleButton(false)
+    }
 
     function updateName(e) {
-        if(e.key === 'Enter' || e.type === 'blur') {
-        setIsEditing(false)
-        props.editTask(props.id, newName)
+        if (e.key === 'Enter' || e.type === 'blur') {
+            if (newName === "") {
+                return
+            }
+            setIsEditing(false)
+            props.editTask(props.id, newName)
+        }
     }
-}
-
-    const viewTask =
-        <li className='task-wrapper'>
-            <img src={isCompletedIcon} onClick={() => props.completeTask(props.id)} />
-            <label className={props.isComplete ? 'task-labes-cross' : 'task-label'}
-                onDoubleClick={() => setIsEditing(true)}>{props.name}</label>
-            <button className='delete-task-btn'
-                onClick={() => props.deleteTask(props.id)}>×</button>
-        </li>
-
-    const editingTask =
-        <li className='task-wrapper'>
-            <img src={isCompletedIcon} style={{opacity: 0}} />
-            <input className="todo-edit" value={newName} onChange={changeInputValue}
-               id={props.id} onBlur={updateName} onKeyPress={updateName} />
-            {/* <button className='delete-task-btn'  style={{opacity: 0}}
-                onClick={() => props.deleteTask(props.id)}>×</button> */}
-        </li>
-
-
     return (
+        <li className='task-wrapper' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <img src={isCompletedIcon} onClick={() => props.completeTask(props.id)} style={isEditing ? { opacity: 0 } : { opacity: 1 }} />
 
-        // <div>{props.isEditing ? editingTask : viewTask}</div>
-        <div>{isEditing ? editingTask : viewTask}</div>
+            {isEditing ?
+                <input autoFocus className="todo-edit" value={newName} onChange={changeInputValue}
+                    id={props.id} onBlur={updateName} onKeyPress={updateName} /> :
+                <label className={props.isComplete ? 'task-label-cross' : 'task-label'}
+                    onDoubleClick={() => setIsEditing(true)}>{props.name}</label>}
 
+            {isEditing ? "" : <button className='delete-task-btn' onClick={() => props.deleteTask(props.id)}
+                style={visibleButton ? { opacity: 1 } : { opacity: 0 }}>×</button>}
+        </li>
     );
 }
 export default Todo;
