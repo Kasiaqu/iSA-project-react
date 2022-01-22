@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Todo from './../components/Todo'
+import { useState } from "react"
 
 const Form = (props) => {
 
@@ -25,9 +24,12 @@ const Form = (props) => {
     return (
         <div>
             <form className='form-wrapper'>
+
                 <div className='arrow-btn'
-                    style={{ opacity: props.counterTasks ? '1' : '0' },
-                        { color: props.isAllTasksDone ? "var(--darkerGrey)" : "var(--lightGrey)" }}
+                    style={{
+                        opacity: props.counterTasks ? '1' : '0',
+                        color: props.isAllTasksDone ? "var(--darkerGrey)" : "var(--lightGrey)"
+                    }}
                     onClick={props.completeAllTasks}>{"❯"}</div>
                 <input className='todo' placeholder="What needs to be done?" value={name}
                     onChange={changeInputValue} onKeyPress={addTask}></input>
@@ -36,3 +38,4 @@ const Form = (props) => {
     );
 }
 export default Form;
+

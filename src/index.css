@@ -3,11 +3,13 @@
   --darkGrey: #868686;
   --darkerGrey: #4d4d4d;
   --pink: rgba(175, 47, 47, 0.15);
+  min-width: 550px;
 }
 html {
   display: flex;
   justify-content: center;
   height: 100vh;
+  min-width: 550px;
 }
 body{
   box-sizing: border-box;
@@ -54,6 +56,11 @@ form {
   padding: 16px 0 14px 0;
 }
 
+::placeholder {
+  color: var(--lightGrey);
+  font-style: italic;
+}
+
 .arrow-btn{
   position: relative;
   top: 2px;
@@ -75,6 +82,7 @@ form {
   font-size: 24px;
   border: none;
   text-indent: 10px;
+  color: var(---darkerGrey)
 }
 .todo-edit {
   position: relative;
@@ -85,16 +93,11 @@ form {
   border: 1px solid #868686;
   box-shadow: inset 0px 0px 3px 0px #8A8A8A;
 }
-::placeholder {
-  color: var(--lightGrey);
-  font-style: italic;
-}
 
 input:focus{
   outline:none;
 }
 
-/* task list  */
 .task-list {
   list-style: none;
   width: 550px;
@@ -109,7 +112,6 @@ input:focus{
   width: 550px;
   background-color: white;
   border-bottom: 1px solid #ededed;
-  padding: 5px, 10px, 10px, 10px;
 }
 .task-label {
   position: relative;
@@ -160,7 +162,7 @@ input:focus{
   font-size: 14px;
 }
 .button-nav-left {
-  width: 74px;
+  width: 90px;
 }
 .buttons-list {
   display: flex;
@@ -189,4 +191,18 @@ input:focus{
 .button-nav-clear:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+.footer {
+  padding-top: 50px;
+  color: #bfbfbf;
+  font-size: 10px;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+  text-align: center;
+}
+.link {
+  color: #bfbfbf;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
 }

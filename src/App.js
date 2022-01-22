@@ -3,6 +3,7 @@ import './index.css';
 import Todo from './components/Todo'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton';
+import Footer from "./components/Footer";
 
 function App() {
 	const [tasks, setTasks] = useState([])
@@ -28,7 +29,6 @@ function App() {
 		const isAllCompleted = tasks.every(task => task.isComplete)
 		const completedTasks = tasks.map(task => ({ ...task, isComplete: !isAllCompleted }))
 		setTasks(completedTasks);
-		///zapytać Filipa
 	}
 
 	function clearCompletedTasks() {
@@ -82,19 +82,15 @@ function App() {
 							isComplete={task.isComplete}
 							deleteTask={deleteTask}
 							completeTask={completeTask}
-							editTask={editTask}
-
-
-						/>)}
+							editTask={editTask} />)}
 					</ul>
 					<FilterButton counterUncompletedTasks={counterUncompletedTasks}
 						counterTasks={counterTasks}
 						clearCompletedTasks={clearCompletedTasks}
 						setFilter={setFilter}
-						filter={filter}
-
-					/>
+						filter={filter} />
 				</div>
+				<Footer />
 			</div>
 		</div>
 	);
