@@ -6,7 +6,7 @@ import FilterButton from './components/FilterButton';
 import Footer from "./components/Footer";
 
 function App() {
-	const [tasks, setTasks] = useState([])
+	const [tasks, setTasks] = useState(JSON.parse(window.localStorage.getItem('task-storage')))
 	const [filter, setFilter] = useState("All")
 	const [isAllTasksDone, setIsAllTasksDone] = useState(false)
 

@@ -3,9 +3,6 @@ import { useState, useEffect } from "react"
 const Form = (props) => {
 
     const [name, setName] = useState("")
-    // useEffect(() => {
-    //     window.localStorage.setItem(`task-storage`, JSON.stringify(props.tasks))
-    // }, [props.tasks])
 
     const addTask = (e) => {
         if (e.key === 'Enter') {
