@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Form = (props) => {
 
     const [name, setName] = useState("")
+    // useEffect(() => {
+    //     window.localStorage.setItem(`task-storage`, JSON.stringify(props.tasks))
+    // }, [props.tasks])
 
     const addTask = (e) => {
         if (e.key === 'Enter') {
@@ -10,8 +13,9 @@ const Form = (props) => {
             if (name === "") {
                 return
             }
-            const task = { name, id: Date.now(), isComplete: false }
+            const task = {id: Date.now(), name, isComplete: false }
             props.setTasks((prevValue) => {
+                window.localStorage.setItem(`task-storage`, JSON.stringify([...prevValue, task]))
                 return [...prevValue, task]
             })
             setName("")

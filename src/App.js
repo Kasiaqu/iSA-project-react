@@ -73,11 +73,13 @@ function App() {
 				<div className='wrapper'>
 					<Form setTasks={setTasks} completeAllTasks={completeAllTasks}
 						isAllTasksDone={isAllTasksDone}
-						counterTasks={counterTasks} />
+						counterTasks={counterTasks} 
+						tasks={tasks}/>
 					<ul className='task-list'>
 						{tasks.filter(filterTasks).map((task) => <Todo
 							key={task.id}
 							name={task.name}
+							// name={window.localStorage.getItem('')}
 							id={task.id}
 							isComplete={task.isComplete}
 							deleteTask={deleteTask}
