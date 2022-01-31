@@ -6,9 +6,13 @@ import FilterButton from './components/FilterButton';
 import Footer from "./components/Footer";
 
 function App() {
-	const [tasks, setTasks] = useState(JSON.parse(window.localStorage.getItem('task-storage')))
+	const [tasks, setTasks] = useState(JSON.parse(window.localStorage.getItem('task-storage')) || [])
 	const [filter, setFilter] = useState("All")
 	const [isAllTasksDone, setIsAllTasksDone] = useState(false)
+
+	useEffect(() => {
+		window.localStorage.setItem(`task-storage`, JSON.stringify(tasks))
+	},[tasks])
 
 	function deleteTask(id) {
 		const remainingTasks = tasks.filter(task => id !== task.id);
@@ -48,7 +52,6 @@ function App() {
 
 		const editedTaskList = tasks.map(task => {
 			if (id === task.id) {
-				console.log("edit task")
 				return { ...task, name: newName }
 			}
 			return task;
@@ -62,9 +65,7 @@ function App() {
 	}, [completeTask, completeAllTasks])
 
 	const counterTasks = tasks.length
-	console.log(counterTasks)
 	const counterUncompletedTasks = tasks.filter(task => task.isComplete === false).length
-	console.log(tasks)
 	return (
 
 		<div className="app">
@@ -79,7 +80,6 @@ function App() {
 						{tasks.filter(filterTasks).map((task) => <Todo
 							key={task.id}
 							name={task.name}
-							// name={window.localStorage.getItem('')}
 							id={task.id}
 							isComplete={task.isComplete}
 							deleteTask={deleteTask}
