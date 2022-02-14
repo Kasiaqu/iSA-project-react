@@ -49,9 +49,11 @@ and finally
 npm start
 ```
 
+### Below you can see the layout of application
+
 ![Todo1](/images/todo1.png)
 
-## About aplication
+## About application
 
 This is an aplication to control your tasks. You can:
 
